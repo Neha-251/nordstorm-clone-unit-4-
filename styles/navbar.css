@@ -1,201 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cookie&family=Dancing+Script:wght@400;500;600;700&family=Nanum+Gothic&family=Quicksand:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap');
 
-        #navbar{
-            width: 100%;
-            
-        }
-        #navbar *{
-            font-family: Brandon Text,Arial,sans-serif;
-        }
+body {
+    background-color: rgb(255, 255, 255);
+    margin: 0%;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 0.1px;
 
-        #international_shipping{
-            width: 100%;
-            background-color: black;
-            height: 5%;
-            text-align: center;
-        }
-        #international_para *{
-            font-family: Brandon Text,Arial,sans-serif;
-            color: #fff;
-            cursor: pointer;
-            line-height: 3em;
-            position: relative;
-            
+}
 
-        }
-        #img_austria, #austria_img{
-            background-color: black;
-            display: flex;
-            float: right;
-            border:0;
-            line-height: 1.5em;
-            position: relative;
-            align-items: center;
+#navbar {
+    width: 99.8%;
+    height: auto;
+}
 
-        }
-        #img_austria{
-            padding:0px 15px;
-            padding-top:  3px;
-            font-size:11px
-        }
+#navbar_div1 {
+    background-color: black;
+    height: 30px;
+    color: white;
+    display: flex;
 
-        #bar_rightsider{
-            cursor: pointer;
-            display:flex;
-            /* border: 1px solid black; */
-        }
-        #bar_rightsider > div{
-            margin-right: 40px;
-        }
-        /* #cart_img{
-            width: 5%;
-            padding: 0px;
-        } */
+}
 
-        #nav_cat_div{
-            width: 100%;
-            /* border: 2px solid black; */
-        }
-        #nav_catog{
-            justify-content: space-between;
-            list-style: none;
-            display:flex; 
-            line-height:1.5;
-        }
-        #select_cat{
-            /* padding: 0px 55px; */
-            color:#393939; 
-            cursor: pointer;
-        }
-        #select_cat_Sale{
-            margin-left: -10px;
-            cursor: pointer;
-            color:red;
-        }
-        #select_cat_brand{
-            margin-right: 40px;
-            cursor: pointer;
-        }
-        /* hover - stgyles -------------------------------*/
-        #select_cat_Sale:hover{
-            border-bottom: 2px solid red;
-        }
-        #select_cat_brand:hover{
-            border-bottom: 2px solid black;
-        }
-        #select_cat:hover{
-            border-bottom: 2px solid black;
-        }
+#navbar_div1_div1 {
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+    width: 90%;
+    margin-top: 6px;
+}
 
-        #query{
-            border: 0px;
-            font-family: Brandon Text,Arial,sans-serif;
-            font-size: medium;
-            width: 100%;
-            margin-left: -25px;
-            margin-top: -35px;  
-            padding-top: 5px; 
-            
-        }
-      
+#navbar_div1_div2 {
+    width: 60px;
+    color: white;
+    display: flex;
+}
 
-      #bar_rightsider >a {
-            text-decoration: none;
-            color: black;
-        }
+#flag_img {
+    height: 15px;
+    width: 15px;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-right: 6px;
+}
 
+#navbar_div1_div2>p {
+    margin-top: 5px;
+}
 
+#navbar_div2 {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 0%;
+}
 
-        #bar_rightsider{
-            /* border: 1px solid red; */
-            text-align: center;
-            width: 60%;
-           margin-top: -15px;
-            align-content: center;
-          
+#logo_img {
+    height: 26px;
+    margin-left: 3%;
+}
 
-        }
+#search_div {
 
-        .main-menu li{
-            display: inline-block;
-            padding: 10px 0px;
-            width: 180px;
-           
-            font-family:  Brandon Text,Arial,sans-serif;
-            transition: 1s; 
-            /* border: 1px solid green;  */
-            cursor: pointer;
-            
-        }
+    height: 10px;
+    margin-left: 65%;
+}
 
-        .sub-menu{
-            display: none;
-            /* list-style-type: none; */
-            position: absolute;
-            border: 1px solid gainsboro;
-            margin-top: 5px;
-            margin-left: -20px;
-            box-shadow: 1px 1px 1px grey ;
-            text-align: left;
-            width: 220px;
-            padding-top: 15px;
-            z-index: 1;
-            background-color: white;
-            text-decoration: none; 
-            color: white;
-         
+#search_div>div {
+    display: flex;
+}
 
-            
-        }
+#searach_icon {
+    height: 30px;
+    margin-top: 0px;
+    margin-right: 5px;
+}
 
-        /* .sub-menu:before{
-            content : "";
-            width: 0px;
-            height: 0px;
-            border-left: 15px solid pink;
-            border-right: 15px solid pink;
-            border-bottom: 30px solid pink;
-            position: absolute;
-            
-        } */
+#search_div>div>p {
+    margin-top: 2px;
+}
 
-        .sub-menu >li{
-            padding: 10px;
-            font-family:  Brandon Text,Arial,sans-serif;
-          
-        }
+#searchbar_div {
+    visibility: hidden;
+    /* position: absolute; */
+    display: flex;
+    height: 60px;
+    width: 300px;
+    margin-left: 68%;
+    margin-top: -35px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
-        .main-menu li:hover, .sub-menu li:hover{
-            background: rgb(235, 235, 235);
-        }
-        .main-menu li:hover .sub-menu{
-            display: block;
-        }
+#searchbar_div p {
+    margin-right: 5px;
+    margin-top: 0px;
+    font-size: 25px;
+    color: rgb(59, 59, 59);
+}
 
-        #nord_img{
-            width: 30%;
-        }
-        #nordstorm{
-            margin-left: 25px;
-            /* border: 2px solid black; */
-            width: 60%;   
-        }
-        #nordstorm_searchbar{
-            display: flex;
-            height: 50px;
-        }
+#register_dropdown {
+    height: 0px;
+    visibility: hidden;
+    background-color: white;
+    margin-left: 82%;
+    margin-top: -55px;
+    padding: 12px;
+    font-size: 14px;
+    color: rgb(63, 62, 62);
+    width: 220px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
-        #l1{
-            background-color: black;
-            color: white;
-        }
+#register_dropdown>div {
+    margin-bottom: 15px;
+    background-color: white;
+
+}
 
 
-        #carthref{
-            /* text-decoration: none; */
-            color: black;
-        }
+#search_bar {
+    margin: auto;
+    outline: none;
+    border: none;
+    width: 220px;
+    font-size: 15px;
+    font-weight: 400;
 
-        .sub-menu > *{
-            /* text-decoration: none; */
-            color: black;
-        }
+}
+
+#register_div {
+    display: flex;
+    width: 100px;
+    margin-left: 3%;
+}
+
+#register_div>p:nth-child(1) {
+    font-size: 16px;
+
+    margin-top: 2px;
+}
+
+#register_div>p:nth-child(2) {
+    font-size: 8px;
+    margin-left: 4px;
+}
+
+#cart_img {
+    height: 50px;
+    margin-top: -15px;
+}
+
+
+#navbar_div3 {
+    display: flex;
+    margin-top: 20px;
+}
+
+#navbar_div3>div {
+    margin-left: 40px;
+    margin-right: 45px;
+    font-size: 15px;
+    color: rgb(68, 68, 68);
+}
+
+#navbar_div3>div:hover {
+    text-decoration: underline;
+    text-decoration-color: black;
+    text-decoration-thickness: 2px;
+    cursor:pointer;
+}
+#navbar_div3>div:nth-child(1):hover {
+    text-decoration: underline;
+    text-decoration-color: red;
+    text-decoration-thickness: 2px;
+    cursor:pointer;
+
+}
+
+#navbar_div3>div:nth-child(1) {
+    color: red;
+}
+
+
+
+#dropdown_maindiv{
+    visibility: hidden;
+    width:100%;
+    height:0px;
+    background-color: transparent;
+    overflow: hidden;
+
+}
+
+
+#bold_text{
+    font-weight: 700;
+    font-size: 14px;
+}
+#sale{
+    visibility:hidden;
+    display: flex;
+    width:100%;
+    height:auto;
+    padding:20px;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 15px;
+    color: rgb(71, 71, 71);
+}
+
+#sale > div{
+    width: 200px;
+    margin-left: 30px;
+}
+
+
+
+#women{
+    visibility:hidden;
+    position:relative;
+    margin-top: -150px;
+    display: flex;
+    width:100%;
+    height:auto;
+    padding:20px;
+    margin-top: -570px;
+    font-weight: 400;
+    font-size: 15px;
+    color: rgb(71, 71, 71);
+}
+
+#women > div{
+    width: 200px;
+    margin-left: 30px;
+}
+
+
+
+#men{
+    visibility:hidden;
+    display: flex;
+    width:100%;
+    height:auto;
+    padding:20px;
+    margin-top: -750px;
+    font-weight: 400;
+    font-size: 15px;
+    color: rgb(71, 71, 71);
+}
+
+#men > div{
+    width: 200px;
+    margin-left: 30px;
+}
+
+
+
+#kids{
+    visibility:hidden;
+    display: flex;
+    width:100%;
+    height:auto;
+    padding:20px;
+    margin-top: -760px;
+    font-weight: 400;
+    font-size: 15px;
+    color: rgb(71, 71, 71);
+}
+
+#kids > div{
+    width: 200px;
+    margin-left: 30px;
+}
+
+
+
+#youngAdult{
+    visibility:hidden;
+    display: flex;
+    width:100%;
+    height:auto;
+    padding:20px;
+    margin-top: -710px;
+    font-weight: 400;
+    font-size: 13px;
+    color: rgb(71, 71, 71);
+}
+
+#youngAdult > div{
+    width: 200px;
+    margin-left: 30px;
+}
+
+
+#activeWear{
+    visibility:hidden;
+    display: flex;
+    width:100%;
+    height:auto;
+    padding:20px;
+    margin-top: -650px;
+    font-weight: 400;
+    font-size: 13px;
+    color: rgb(71, 71, 71);
+}
+
+#activeWear > div{
+    width: 200px;
+    margin-left: 30px;
+}
+
+
+#home{
+    visibility:hidden;
+    display: flex;
+    width:100%;
+    height:auto;
+    padding:20px;
+    margin-top: -650px;
+    font-weight: 400;
+    font-size: 13px;
+    color: rgb(71, 71, 71);
+}
+
+#home > div{
+    width: 200px;
+    margin-left: 30px;
+}
+
+
+#beauty{
+    visibility:hidden;
+    display: flex;
+    width:100%;
+    height:auto;
+    padding:20px;
+    margin-top: -620px;
+    font-weight: 400;
+    font-size: 13px;
+    color: rgb(71, 71, 71);
+}
+
+#beauty > div{
+    width: 200px;
+    margin-left: 30px;
+}
+
+
+#designer{
+    visibility:hidden;
+    display: flex;
+    width:100%;
+    height:auto;
+    padding:20px;
+    margin-top: -720px;
+    font-weight: 400;
+    font-size: 13px;
+    color: rgb(71, 71, 71);
+}
+
+#designer > div{
+    width: 200px;
+    margin-left: 30px;
+}
+
+
+#gifts{
+    visibility:hidden;
+    display: flex;
+    width:100%;
+    height:auto;
+    padding:20px;
+    margin-top:-660px;
+    font-weight: 400;
+    font-size: 13px;
+    color: rgb(71, 71, 71);
+}
+
+#gifts > div{
+    width: 200px;
+    margin-left: 30px;
+}
+
+
+#brands{
+    visibility:hidden;
+    display: flex;
+    width:100%;
+    height:auto;
+    padding:20px;
+    margin-top: -330px;
+    font-weight: 400;
+    font-size: 13px;
+    color: rgb(71, 71, 71);
+}
+
+#brands > div{
+    width: 200px;
+    margin-left: 30px;
+}
+
+
+
+

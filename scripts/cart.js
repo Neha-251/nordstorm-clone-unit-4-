@@ -1,205 +1,358 @@
-var cartArr = JSON.parse(localStorage.getItem("CartItems"))
-    // console.log(cartArr);
 
-    appendarticles(cartArr);
-
-    function appendarticles(data){
-    data.forEach((elem,index) => {
-        // console.log(elem.item);
-
-        var showdetail = document.createElement("div");
-        showdetail.setAttribute("id","showdetail");
-
-        var brandinfo = document.createElement("div");
-        brandinfo.setAttribute("id","brandinfo");
-
-        var cartimg = document.createElement("div");
-        cartimg.setAttribute("id","cartimg");
-
-        var image = document.createElement("img");
-        image.setAttribute("src",elem.img_url);
-        cartimg.append(image);
-
-        var info = document.createElement("div");
-        info.setAttribute("id","info");
-
-        var brand = document.createElement("p");
-        brand.textContent = elem.brand;
-
-        var type = document.createElement("p");
-        type.textContent = elem.name;
-        type.setAttribute("id","type")
-
-        var size = document.createElement("p");
-        size.textContent =  "Size: XL";
-
-        var color = document.createElement("p");
-        color.textContent = "Color: " +  elem.color;
-
-        var itemno = document.createElement("p");
-        itemno.textContent =  "Item: " + elem.item;
-
-        var div2 = document.createElement("div");
-        div2.setAttribute("id","div2");
-        // div2.innerText = "jhsdbf"
-
-        var remove  = document.createElement("div");
-        remove.setAttribute("id","remove");
-        remove.textContent = "Remove"
-        remove.addEventListener("click",function(){   //remove
-            removeItem(index);
-        });
-
-        var savelater  = document.createElement("div");
-        savelater.setAttribute("id","later");
-        savelater.textContent = "Save Later"
-        savelater.addEventListener("click",function(){   //savelater
-            saveLater(elem);
-        });
-
-        div2.append(remove,savelater);
-
-        info.append(brand,type,size,color,itemno,div2)
-        // console.log(info);
-
-        brandinfo.append(cartimg,info);
-
-        var quantity = document.createElement("div");
-        quantity.setAttribute("id","quantity");
+import header from "../components/header.js"
+let head = document.getElementById("header");
+head.innerHTML = header();
 
 
-        var input = document.createElement("input");
-        input.setAttribute("id","quan");
-        input.placeholder = "QTY"
-        input.setAttribute("type","number");
+let sale = document.getElementById("sale_h");
+let women = document.getElementById("women_h");
+let men = document.getElementById("men_h");
+let kids = document.getElementById("kids_h");
+let youngAdult = document.getElementById("youngAdult_h");
+let activewear = document.getElementById("activewear_h");
+let home = document.getElementById("home_h");
+let beauty = document.getElementById("beauty_h");
+let designer = document.getElementById("designer_h");
+let gifts = document.getElementById("gifts_h");
+let brands = document.getElementById("brands_h");
 
-        // if(input.value){
-        //     console.log("sharan");
 
-        // }
-        quantity.append(input);
 
-        var price1 = document.createElement("div");
-        price1.setAttribute("id","price");
+let sale_div = document.getElementById("sale");
+let women_div = document.getElementById("women");
+let men_div = document.getElementById("men");
+let kids_div = document.getElementById("kids");
+let youngAdult_div = document.getElementById("youngAdult");
+let activewear_div = document.getElementById("activeWear");
+let home_div = document.getElementById("home");
+let beauty_div = document.getElementById("beauty");
+let designer_div = document.getElementById("designer");
+let gifts_div = document.getElementById("gifts");
+let brands_div = document.getElementById("brands");
 
-        var price = document.createElement("h3");
-        price.textContent = "$" + elem.price;
+let dropdown_maindiv = document.getElementById("dropdown_maindiv");
 
-        var now = document.createElement("p");
-        now.textContent = "Now: $ " + elem.price;
 
-        var was = document.createElement("p");
-        was.textContent = "Was: $ " + elem.stprice;
+let search_div = document.getElementById("search_div");
 
-        price1.append(price,now,was);
-        // console.log(price1);
+let searchbar_div = document.getElementById("searchbar_div");
 
-        showdetail.append(brandinfo,quantity,price1);
+search_div.addEventListener("mouseover", ()=> {
+    searchbar_div.style.height = "auto";
+    searchbar_div.style.visibility = "visible";
+    gifts.style.visibility = "hidden";
+    brands.style.visibility = "hidden";
 
-        var main = document.getElementById("left");
-        main.append(showdetail)
+})
+searchbar_div.addEventListener("mouseover", ()=> {
+    searchbar_div.style.height = "0px";
+    searchbar_div.style.visibility = "hidden";
+    gifts.style.visibility = "visible";
+    brands.style.visibility = "visible";
+})
 
-    });
-    //total calculator
-    var sum = 0;
-    for(let i=0; i<cartArr.length; i++){
-      sum += cartArr[i].price;
-    }
-    console.log(sum);
-    localStorage.setItem("total",sum);
-    document.querySelector("#total").textContent = "$ " + sum;
+let register_dropdown = document.getElementById("register_dropdown");
 
-    document.querySelector("#items").textContent = `Shopping Bag (${cartArr.length})`;  
+let register_div = document.getElementById("register_div");
+
+register_div.addEventListener("mouseover", ()=> {
+    register_dropdown.style.height = "auto";
+    register_dropdown.style.visibility = "visible";
+    gifts.style.visibility = "hidden";
+    brands.style.visibility = "hidden";
+})
+    register_dropdown.addEventListener("mouseleave", ()=> {
+    register_dropdown.style.height = "0px";
+    register_dropdown.style.visibility = "hidden";
+    gifts.style.visibility = "visible";
+    brands.style.visibility = "visible";
+})
+
+
+sale.addEventListener("click", () => {
+
+    dropdown_maindiv.style.height = "auto";
+
+    sale_div.style.visibility = "visible";
+    women_div.style.visibility = "hidden";
+    men_div.style.visibility = "hidden";
+    kids_div.style.visibility = "hidden";
+    youngAdult_div.style.visibility = "hidden";
+    activewear_div.style.visibility = "hidden";
+    home_div.style.visibility = "hidden";
+    beauty_div.style.visibility = "hidden";
+    designer_div.style.visibility = "hidden";
+    gifts_div.style.visibility = "hidden";
+    brands_div.style.visibility = "hidden";
+
+})
+sale_div.addEventListener("mouseleave", () => {
+    dropdown_maindiv.style.height = "0px";
+
+    sale_div.style.visibility = "hidden";
+
+})
+
+women.addEventListener("click", () => {
+    dropdown_maindiv.style.height = "auto";
+
+    women.style.textDecoration = "underline";
+    women.style.textDecorationColor = "black";
+    women.style.textDecorationThickness = "2px";
+
+    women_div.style.visibility = "visible";
+    sale_div.style.visibility = "hidden";
+    men_div.style.visibility = "hidden";
+    kids_div.style.visibility = "hidden";
+    youngAdult_div.style.visibility = "hidden";
+    activewear_div.style.visibility = "hidden";
+    home_div.style.visibility = "hidden";
+    beauty_div.style.visibility = "hidden";
+    designer_div.style.visibility = "hidden";
+    gifts_div.style.visibility = "hidden";
+    brands_div.style.visibility = "hidden";
+
+})
+women_div.addEventListener("mouseleave", () => {
+    dropdown_maindiv.style.height = "0px";
+
+    women_div.style.visibility = "hidden";
+
+})
+
+men.addEventListener("click", () => {
+    dropdown_maindiv.style.height = "auto";
+
+    men_div.style.visibility = "visible";
+    sale_div.style.visibility = "hidden";
+    women_div.style.visibility = "hidden";
+    kids_div.style.visibility = "hidden";
+    youngAdult_div.style.visibility = "hidden";
+    activewear_div.style.visibility = "hidden";
+    home_div.style.visibility = "hidden";
+    beauty_div.style.visibility = "hidden";
+    designer_div.style.visibility = "hidden";
+    gifts_div.style.visibility = "hidden";
+    brands_div.style.visibility = "hidden";
+
+})
+men_div.addEventListener("mouseleave", () => {
+    dropdown_maindiv.style.height = "0px";
+
+    men_div.style.visibility = "hidden";
+
+})
+
+kids.addEventListener("click", () => {
+    dropdown_maindiv.style.height = "auto";
+
+
+    kids_div.style.visibility = "visible";
+    sale_div.style.visibility = "hidden";
+    women_div.style.visibility = "hidden";
+    men_div.style.visibility = "hidden";
+    youngAdult_div.style.visibility = "hidden";
+    activewear_div.style.visibility = "hidden";
+    home_div.style.visibility = "hidden";
+    beauty_div.style.visibility = "hidden";
+    designer_div.style.visibility = "hidden";
+    gifts_div.style.visibility = "hidden";
+    brands_div.style.visibility = "hidden";
+
+})
+kids_div.addEventListener("mouseleave", () => {
+    dropdown_maindiv.style.height = "0px";
+
+    kids_div.style.visibility = "hidden";
+
+})
+
+
+youngAdult.addEventListener("click", () => {
+    dropdown_maindiv.style.height = "auto";
+
+    youngAdult_div.style.visibility = "visible";
+    sale_div.style.visibility = "hidden";
+    women_div.style.visibility = "hidden";
+    kids_div.style.visibility = "hidden";
+    men_div.style.visibility = "hidden";
+    activewear_div.style.visibility = "hidden";
+    home_div.style.visibility = "hidden";
+    beauty_div.style.visibility = "hidden";
+    designer_div.style.visibility = "hidden";
+    gifts_div.style.visibility = "hidden";
+    brands_div.style.visibility = "hidden";
+
+})
+youngAdult_div.addEventListener("mouseleave", () => {
+    dropdown_maindiv.style.height = "0px";
+
+    youngAdult_div.style.visibility = "hidden";
+
+})
+
+activewear.addEventListener("click", () => {
+    dropdown_maindiv.style.height = "auto";
+
+
+    activewear_div.style.visibility = "visible";
+    sale_div.style.visibility = "hidden";
+    women_div.style.visibility = "hidden";
+    kids_div.style.visibility = "hidden";
+    youngAdult_div.style.visibility = "hidden";
+    men_div.style.visibility = "hidden";
+    home_div.style.visibility = "hidden";
+    beauty_div.style.visibility = "hidden";
+    designer_div.style.visibility = "hidden";
+    gifts_div.style.visibility = "hidden";
+    brands_div.style.visibility = "hidden";
+
+})
+activewear_div.addEventListener("mouseleave", () => {
+    dropdown_maindiv.style.height = "0px";
+
+    activewear_div.style.visibility = "hidden";
+
+})
+
+
+home.addEventListener("click", () => {
+    dropdown_maindiv.style.height = "auto";
+
+
+    home_div.style.visibility = "visible";
+    sale_div.style.visibility = "hidden";
+    women_div.style.visibility = "hidden";
+    kids_div.style.visibility = "hidden";
+    youngAdult_div.style.visibility = "hidden";
+    activewear_div.style.visibility = "hidden";
+    men_div.style.visibility = "hidden";
+    beauty_div.style.visibility = "hidden";
+    designer_div.style.visibility = "hidden";
+    gifts_div.style.visibility = "hidden";
+    brands_div.style.visibility = "hidden";
+
+})
+home_div.addEventListener("mouseleave", () => {
+    dropdown_maindiv.style.height = "0px";
+
+    home_div.style.visibility = "hidden";
+
+})
+
+
+beauty.addEventListener("click", () => {
+    dropdown_maindiv.style.height = "auto";
+
+    beauty_div.style.visibility = "visible";
+    sale_div.style.visibility = "hidden";
+    women_div.style.visibility = "hidden";
+    kids_div.style.visibility = "hidden";
+    youngAdult_div.style.visibility = "hidden";
+    activewear_div.style.visibility = "hidden";
+    home_div.style.visibility = "hidden";
+    men_div.style.visibility = "hidden";
+    designer_div.style.visibility = "hidden";
+    gifts_div.style.visibility = "hidden";
+    brands_div.style.visibility = "hidden";
+
+})
+beauty_div.addEventListener("mouseleave", () => {
+    dropdown_maindiv.style.height = "0px";
+
+    beauty_div.style.visibility = "hidden";
+
+})
+
+designer.addEventListener("click", () => {
+    dropdown_maindiv.style.height = "auto";
+
+    designer_div.style.visibility = "visible";
+    sale_div.style.visibility = "hidden";
+    women_div.style.visibility = "hidden";
+    kids_div.style.visibility = "hidden";
+    youngAdult_div.style.visibility = "hidden";
+    activewear_div.style.visibility = "hidden";
+    home_div.style.visibility = "hidden";
+    beauty_div.style.visibility = "hidden";
+    men_div.style.visibility = "hidden";
+    gifts_div.style.visibility = "hidden";
+    brands_div.style.visibility = "hidden";
+
+})
+designer_div.addEventListener("mouseleave", () => {
+    dropdown_maindiv.style.height = "0px";
+
+    designer_div.style.visibility = "hidden";
+
+})
+
+
+gifts.addEventListener("click", () => {
+    dropdown_maindiv.style.height = "auto";
+
     
-}
+    gifts_div.style.visibility = "visible";
+    sale_div.style.visibility = "hidden";
+    women_div.style.visibility = "hidden";
+    kids_div.style.visibility = "hidden";
+    youngAdult_div.style.visibility = "hidden";
+    activewear_div.style.visibility = "hidden";
+    home_div.style.visibility = "hidden";
+    beauty_div.style.visibility = "hidden";
+    designer_div.style.visibility = "hidden";
+    men_div.style.visibility = "hidden";
+    brands_div.style.visibility = "hidden";
+
+})
+gifts_div.addEventListener("mouseleave", () => {
+    dropdown_maindiv.style.height = "0px";
+
+    gifts_div.style.visibility = "hidden";
+
+})
+
+brands.addEventListener("click", () => {
+    dropdown_maindiv.style.height = "auto";
+
+    brands_div.style.visibility = "visible";
+    sale_div.style.visibility = "hidden";
+    women_div.style.visibility = "hidden";
+    kids_div.style.visibility = "hidden";
+    youngAdult_div.style.visibility = "hidden";
+    activewear_div.style.visibility = "hidden";
+    home_div.style.visibility = "hidden";
+    beauty_div.style.visibility = "hidden";
+    designer_div.style.visibility = "hidden";
+    gifts_div.style.visibility = "hidden";
+    men_div.style.visibility = "hidden";
+
+})
+brands_div.addEventListener("mouseleave", () => {
+    dropdown_maindiv.style.height = "0px";
+
+    brands_div.style.visibility = "hidden";
+
+})
 
 
-//remove function
-function removeItem(index){
-    document.getElementById("left").innerHTML = null;
-    cartArr.splice(index,1);
-    localStorage.setItem("CartItems",JSON.stringify(cartArr));
-    appendarticles(cartArr);
-}
-//save later function
-var savearr = [];
-function saveLater(elem){
-    savearr.push(elem);
-    localStorage.setItem("savelaterItem",JSON.stringify(savearr));     
-}
-var data = JSON.parse(localStorage.getItem("savelaterItem"));
-var savu = document.getElementById("savelater");
-savu.innerText = "Save Later " + "(" + data.length + ")"; 
+
+
+
+// Cart functionalities start
 
 
 
 
 
-function appendRight(data1){
-    data1.forEach(function(elem){
-        // console.log(elem);
-
-        var mainco = document.createElement("div");
-        mainco.setAttribute("id","mainco");
-
-        var imgdiv = document.createElement("div");
-        imgdiv.setAttribute("id","ridiv");
-
-        var smimg = document.createElement("img");
-        smimg.setAttribute("src",elem.imgurl);
-
-        imgdiv.append(smimg);
-
-        var infodiv = document.createElement("div");
-        infodiv.setAttribute("id","infodiv");
-
-        var limdeal = document.createElement("h5");
-        limdeal.textContent = "Limited Deal"
-
-        var brname = document.createElement("p");
-        brname.textContent = elem.brand;
-
-        var price = document.createElement("h5");
-        price.textContent = elem.price;
-
-        var size = document.createElement("p");
-        size.textContent = "Size Available";
-
-        infodiv.append(limdeal,brname,price,size);
-
-        mainco.append(imgdiv,infodiv)
-
-        document.querySelector("#right").append(mainco);
-
-        
-
-    });
-
-}
 
 
-dummydata = [
-    {
-        imgurl: "https://n.nordstrommedia.com/id/sr3/cb3be8f0-1325-426a-9f6f-8d4898c6d572.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196",
-        brand:"DONAHUE",
-        price: "$ 21"
-    },
-    {
-        imgurl: "https://n.nordstrommedia.com/id/sr3/ea37fe11-b33a-423f-940a-63387d628d15.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196",
-        brand: "ZELLA",
-        price: "$ 32"
-    },
-    {
-        imgurl: "https://n.nordstrommedia.com/id/sr3/9671ef93-13df-411d-b45a-a5e2c2ac04cf.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196",
-        brand: "TOPMAN",
-        price: "$ 12"
 
-    },
-    {
-        imgurl: "https://n.nordstrommedia.com/id/sr3/f6d27119-baca-4d91-973c-eca527adb6c3.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196",
-        brand: "WISDOM",
-        price: "$ 35"
-    }
 
-]
-appendRight(dummydata)
+// Cart functionalities start
+
+
+
+import footer from "../components/footer.js"
+let foot_div = document.getElementById("footer_div");
+foot_div.innerHTML = footer();
