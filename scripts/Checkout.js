@@ -48,14 +48,17 @@ const appendCart = (data, user_id) => {
 
             let cartappend = document.getElementById("cartappend");
 
-            let mainDiv = document.getElementById("div");
+            let mainDiv = document.createElement("div");
             mainDiv.setAttribute("id", "mainDiv");
 
             let subDiv1 = document.createElement('div');
             let subDiv2 = document.createElement('div');
 
-            let main_img = document.getElementById("img");
-            main_img.style.height = "100px";
+            let main_img = document.createElement("img");
+            main_img.style.height = "150px";
+            main_img.style.width = "120px";
+
+
             main_img.src = elem.product_id.img_url;
 
             subDiv1.append(main_img);
@@ -69,7 +72,7 @@ const appendCart = (data, user_id) => {
             let color = document.createElement("p");
             color.style.fontSize = "14px";
             color.innerText = elem.product_id.color;
- 
+
             let price = document.createElement("p");
             price.innerText = `₹ ${elem.product_id.price}`;
 
@@ -96,6 +99,46 @@ const appendCart = (data, user_id) => {
     let total_all = total + tax + shipping;
     let totalp = document.getElementById("totalp");
     totalp.innerHTML = `(INR) ₹ ${total_all}`;
+
+
+    let procode = document.getElementById("procode");
+    let applypromo = document.getElementById("applypromo");
+
+
+    procode.addEventListener("click", () => {
+        console.log(total_all);
+
+
+
+        let promotag = document.getElementById("promotag").value;
+        let plusSign = document.getElementById("plusSign");
+        let promobutton = document.getElementById("promobutton");
+
+        applypromo.style.height = "auto";
+        applypromo.style.visibility = "visible";
+        procode.style.color = "steelblue";
+        plusSign.innerHTML = null;
+        plusSign.innerHTML = `−`;
+
+        promobutton.addEventListener("click", () => {
+            let promotag = document.getElementById("promotag").value;
+
+            console.log(promotag)
+            if (promotag == "sharan" || promotag == "prajakta" || promotag == "rupesh" || promotag == "jaiprakash" || promotag == "neha") {
+
+
+                total_all = total_all - Math.round((20 * total_all) / 100);
+                console.log('total_all', total_all)
+
+                let totalp = document.getElementById("totalp");
+                totalp.innerHTML = `(INR) ₹ ${total_all}`;
+
+
+            }
+        })
+
+
+    })
 }
 
 

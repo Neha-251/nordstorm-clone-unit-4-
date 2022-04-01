@@ -127,8 +127,6 @@ const appendCart = (data, user_id) => {
             price1.innerText = `Now: INR ${elem.product_id.price}`;
 
 
-
-
             let price2 = document.createElement("p") //put the id of price 
             price2.setAttribute("id", "price2");
             price2.innerText = `INR ${elem.product_id.price}`;
@@ -155,7 +153,9 @@ const appendCart = (data, user_id) => {
 
 
             removeBtn.addEventListener("click", () => {
-
+                console.log("elem._id", elem._id);
+                removeData(elem._id);
+                window.location.href = "cart.html";
             })
 
 
@@ -172,6 +172,30 @@ const appendCart = (data, user_id) => {
 
 }
 
+
+async function removeData(id) {
+    try{
+        let res = await fetch(`https://sharan-app-project.herokuapp.com/cart/${id}`, (
+            {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "aplication/json"
+                }
+            }
+        ))
+
+        let remove_data = await res.json();
+
+        console.log('remove_data', remove_data)
+
+        
+    }
+    catch(err) {
+        console.log('err', err)
+
+    }
+    
+}
 
 
 

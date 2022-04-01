@@ -147,6 +147,24 @@ img{
     justify-content: space-around;
     border-bottom: 1px solid grey;
 }
+
+
+#procode{
+    display: flex;
+}
+
+#plusSign{
+    margin-top:14px;
+    margin-left:20px;
+    font-size: 20px;
+
+}
+
+#applypromo{
+    visibility: hidden;
+    height:0px;
+}
+
 #promobutton{
     width: 90px;
     background-color: lightseagreen;
