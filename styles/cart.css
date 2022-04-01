@@ -70,7 +70,7 @@
 
 #items_maindiv{
     height:auto;
-    width: 100px;
+    width: 850px;
     border-top: 0.2px solid grey;
     border-bottom: 0.2px solid grey;
 
@@ -98,7 +98,8 @@
 #total_div{
     display: flex;
     margin-top: 10px;
-    width:100%;
+    width:380px;
+    font-weight: 550;
 }
 
 #total_div_div1{
@@ -109,7 +110,8 @@
 #total_div_div2{
     font-size: 18px;
     align-self: flex-end;
-    margin-left: 250px;
+    margin-left: 200px;
+    width:100px;
 }
 
 #checkout_btn{
@@ -121,4 +123,66 @@
     margin-top:20px;
     border:none;
     cursor: pointer;
+}
+
+#mainDiv{
+    display: flex;
+    width:100%;
+    height:auto;
+}
+
+#subDiv1{
+    width:45%;
+    display: flex;
+}
+
+#subDiv2{
+    width:20%;
+}
+
+#subDiv3{
+    width:35%;
+}
+
+#price2{
+    font-weight:600;
+}
+
+#striked{
+    text-decoration: line-through;
+}
+
+#delivery_div{
+    display: flex;
+    font-size: 13px;
+    width:400px;
+}
+
+#delivery_img{
+    height:50px;
+}
+
+#buttonDiv{
+    display:flex;
+}
+
+#mainDiv{
+    width:1600px;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+#image{
+    height:150px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+#removeBtn{
+    height:20px;
+    width:60px;
+    margin-top: 20px;
+    margin-right: 40px;
+    font-size: 13px;
+    
 }

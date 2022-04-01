@@ -4,6 +4,7 @@
 /* Main grid middel */
   #midContainer{
       display: grid;
+      margin-top:50px;
       grid-template-columns: 18% 82%;
       /* border: solid 1px red; */
   }

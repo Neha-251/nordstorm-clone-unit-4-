@@ -5,7 +5,7 @@ function header() {
         <div id="navbar_div1_div1">Join us in supporting humanitarian aid for the people of Ukraine. Learn More
         </div>
         <div id="navbar_div1_div2">
-            <img src="./img/flag.jpg" id="flag_img" alt="">
+            <img src="../img/flag.jpg" id="flag_img" alt="">
             <p>India</p>
         </div>
     </div>
@@ -16,7 +16,7 @@ function header() {
 
         <div id="search_div">
             <div>
-                <img src="img/search_icon.png" id="searach_icon" alt="">
+                <img src="../img/search_icon.png" id="searach_icon" alt="">
                 <p>Search</p>
             </div>
 

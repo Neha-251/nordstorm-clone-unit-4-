@@ -1,95 +1,105 @@
-var cartArr = JSON.parse(localStorage.getItem("CartItems"));
-// console.log(cartArr);
-appendRight(cartArr);
-var total = localStorage.getItem("total");
-console.log(total);
-document.querySelector("#totalshow").textContent =  "$ " + total;
-document.querySelector("#totalp").textContent = "$ " +  total;
 
-function appendRight(data1){
-data1.forEach(function(elem){
-    // console.log(elem);
 
-    var mainco = document.createElement("div");
-    mainco.setAttribute("id","mainco");
 
-    var imgdiv = document.createElement("div");
-    imgdiv.setAttribute("id","ridiv");
+getData();
+async function getData() {
 
-    var smimg = document.createElement("img");
-    smimg.setAttribute("src",elem.img_url);
+    try {
+        let res_user = await fetch("https://sharan-app-project.herokuapp.com/users");
 
-    imgdiv.append(smimg);
+        let data_user = await res_user.json();
 
-    var infodiv = document.createElement("div");
-    infodiv.setAttribute("id","infodiv");
+        let L = data_user.users.length - 1;
 
-    var limdeal = document.createElement("h5");
-    limdeal.textContent = elem.brand
-    limdeal.id = "limdeal"
+        let user_id = data_user.users[L]._id;
 
-    var brname = document.createElement("p");
-    brname.textContent = elem.name;
-    brname.id = "namebr"
 
-    var price = document.createElement("h5");
-    price.textContent = elem.price;
 
-    var size = document.createElement("p");
-    size.textContent = "Size Available";
+        let res = await fetch("https://sharan-app-project.herokuapp.com/cart/");
 
-    infodiv.append(limdeal,brname,price,size);
+        let data_cart = await res.json();
 
-    mainco.append(imgdiv,infodiv)
+        console.log(data_cart);
+        appendCart(data_cart.cart, user_id);
+    }
+    catch (err) {
+        console.log('err', err)
 
-    document.querySelector("#cartappend").append(mainco);
-
-});
-
-}
-// var num = document.getElementById("cardnumber").value;
-// console.log(num);
-
-function place(){
-var num = document.getElementById("cardnumber").value;
-var date = document.getElementById("datecard").value;
-var cvv = document.getElementById("cvv").value;
-if(num.length===0 || date.length===0 || cvv.length===0){
-    alert("Enter Correct Card Details")
-
-}else{
-    setTimeout(function(){
-       alert("proceeding to OTP Page");
-       window.location.href = "otp.html"
-    },3000);
-
+    }
 }
 
 
-}
-function adresssaved(){
-var n1 = document.getElementById("n1").value;
-var n2 = document.getElementById("n2").value;
-var n4 = document.getElementById("n4").value;
-var n5 = document.getElementById("n5").value;
-var n7 = document.getElementById("n7").value;
-var n8 = document.getElementById("n8").value;
-var m1 = document.getElementById("m1").value;
-var m2 = document.getElementById("m2").value;
-if (n1.length===0 || n2.length===0 || n4.length===0 || n5.length===0 || n7.length===0 || n8.length===0 || m1.length===0 || m2.length===0) {
-    alert("Missing Shipping details. PLease Enter all the mandatory credientials")
-} else {
-    alert("Adress saved, Proceed to Payment Options");
+const appendCart = (data, user_id) => {
+
+    let items = 0;
+    let total = 0;
+
+    data.forEach((elem) => {
+
+        console.log(user_id);
+        if (elem.user_id == user_id) {
+
+            items++;
+            total = total + elem.product_id.price;
+
+            let totalshow = document.getElementById("totalshow");
+            totalshow.innerHTML = `${items}`;
+
+
+            let cartappend = document.getElementById("cartappend");
+
+            let mainDiv = document.getElementById("div");
+            mainDiv.setAttribute("id", "mainDiv");
+
+            let subDiv1 = document.createElement('div');
+            let subDiv2 = document.createElement('div');
+
+            let main_img = document.getElementById("img");
+            main_img.style.height = "100px";
+            main_img.src = elem.product_id.img_url;
+
+            subDiv1.append(main_img);
+
+            let name = document.createElement("p");
+            name.style.fontSize = "13px";
+            name.style.fontWeight = "600";
+            name.innerText = elem.product_id.name;
+
+
+            let color = document.createElement("p");
+            color.style.fontSize = "14px";
+            color.innerText = elem.product_id.color;
+ 
+            let price = document.createElement("p");
+            price.innerText = `₹ ${elem.product_id.price}`;
+
+            subDiv2.append(name, color, price);
+
+            mainDiv.append(subDiv1, subDiv2);
+            cartappend.append(mainDiv);
+
+        }
+    })
+
+
+    let shipping = 0;
+    if (total < 999) {
+        shipping = 80;
+    }
+    let shippingshow = document.getElementById("shippingshow");
+    shippingshow.innerHTML = `₹ ${shipping}`;
+
+    let tax = Math.round((10 * total) / 100);
+    let taxshow = document.getElementById("taxshow");
+    taxshow.innerHTML = `₹ ${tax}`;
+
+    let total_all = total + tax + shipping;
+    let totalp = document.getElementById("totalp");
+    totalp.innerHTML = `(INR) ₹ ${total_all}`;
 }
 
-}
 
-function promo(){
-var input = document.getElementById("promotag").value;
-if(input==="masai30" || input==="Masai30" || input==="MASAI30"){
-    var tot = document.getElementById("totalp");
-    tot.textContent = (total*0.7);
-    alert("Promocode Applied Successfully")
-    console.log(total*0.7)
-}
-}
+
+
+
+
